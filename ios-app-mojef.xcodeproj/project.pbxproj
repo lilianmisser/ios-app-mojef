@@ -13,6 +13,11 @@
 		B72E95EE260B8B4600C37AF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B72E95ED260B8B4600C37AF6 /* Preview Assets.xcassets */; };
 		B72E95F9260B8B4600C37AF6 /* ios_app_mojefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E95F8260B8B4600C37AF6 /* ios_app_mojefTests.swift */; };
 		B72E9604260B8B4600C37AF6 /* ios_app_mojefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E9603260B8B4600C37AF6 /* ios_app_mojefUITests.swift */; };
+		B72E961B260B9D1700C37AF6 /* GameListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E961A260B9D1700C37AF6 /* GameListIntent.swift */; };
+		B72E9621260B9D3A00C37AF6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E9620260B9D3A00C37AF6 /* Game.swift */; };
+		B72E9626260B9F6C00C37AF6 /* GameListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E9625260B9F6C00C37AF6 /* GameListVM.swift */; };
+		B72E962B260BA10400C37AF6 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E962A260BA10400C37AF6 /* GameListView.swift */; };
+		B72E9631260BA19300C37AF6 /* GameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E9630260BA19300C37AF6 /* GameList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,11 @@
 		B72E95FF260B8B4600C37AF6 /* ios-app-mojefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-app-mojefUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72E9603260B8B4600C37AF6 /* ios_app_mojefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_app_mojefUITests.swift; sourceTree = "<group>"; };
 		B72E9605260B8B4600C37AF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B72E961A260B9D1700C37AF6 /* GameListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListIntent.swift; sourceTree = "<group>"; };
+		B72E9620260B9D3A00C37AF6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		B72E9625260B9F6C00C37AF6 /* GameListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListVM.swift; sourceTree = "<group>"; };
+		B72E962A260BA10400C37AF6 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
+		B72E9630260BA19300C37AF6 /* GameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +105,10 @@
 		B72E95E5260B8B4500C37AF6 /* ios-app-mojef */ = {
 			isa = PBXGroup;
 			children = (
+				B72E961F260B9D2A00C37AF6 /* Model */,
+				B72E9619260B9CB900C37AF6 /* Intent */,
+				B72E9618260B9CA800C37AF6 /* ViewModel */,
+				B72E9617260B9C9F00C37AF6 /* View */,
 				B72E95E6260B8B4500C37AF6 /* ios_app_mojefApp.swift */,
 				B72E95E8260B8B4500C37AF6 /* ContentView.swift */,
 				B72E95EA260B8B4600C37AF6 /* Assets.xcassets */,
@@ -128,6 +142,39 @@
 				B72E9605260B8B4600C37AF6 /* Info.plist */,
 			);
 			path = "ios-app-mojefUITests";
+			sourceTree = "<group>";
+		};
+		B72E9617260B9C9F00C37AF6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B72E962A260BA10400C37AF6 /* GameListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B72E9618260B9CA800C37AF6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B72E9625260B9F6C00C37AF6 /* GameListVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B72E9619260B9CB900C37AF6 /* Intent */ = {
+			isa = PBXGroup;
+			children = (
+				B72E961A260B9D1700C37AF6 /* GameListIntent.swift */,
+			);
+			path = Intent;
+			sourceTree = "<group>";
+		};
+		B72E961F260B9D2A00C37AF6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B72E9620260B9D3A00C37AF6 /* Game.swift */,
+				B72E9630260BA19300C37AF6 /* GameList.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +308,11 @@
 			files = (
 				B72E95E9260B8B4500C37AF6 /* ContentView.swift in Sources */,
 				B72E95E7260B8B4500C37AF6 /* ios_app_mojefApp.swift in Sources */,
+				B72E962B260BA10400C37AF6 /* GameListView.swift in Sources */,
+				B72E961B260B9D1700C37AF6 /* GameListIntent.swift in Sources */,
+				B72E9626260B9F6C00C37AF6 /* GameListVM.swift in Sources */,
+				B72E9631260BA19300C37AF6 /* GameList.swift in Sources */,
+				B72E9621260B9D3A00C37AF6 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
