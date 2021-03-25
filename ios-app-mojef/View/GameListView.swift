@@ -20,19 +20,24 @@ struct GameListView: View {
     func stateChanged(state: GameListState){
         switch state{
         case .newGames:
-            print("newGames")
+            self.intent.gamesLoaded()
         default :
             break
         }
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct GameListView_Previews: PreviewProvider {
-    static var previews: some View {
-        
+        VStack{
+            Text("Current festival game list")
+            List{
+                ForEach(self.gameList.games){ game in
+                    HStack{
+                        Text("Nom : \(game.name)")
+                        Text("Type : \(game.type)")
+                        Text("Age Min : \(game.minAge)")
+                    }
+                }
+            }
+        }
     }
 }

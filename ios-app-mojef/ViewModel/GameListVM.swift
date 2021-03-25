@@ -12,7 +12,7 @@ enum GameListState: CustomStringConvertible{
     case loading
     case loaded([Game])
     case loadError
-    case newGames
+    case newGames([Game])
     
     var description: String{
         switch self{
@@ -28,6 +28,7 @@ enum GameListState: CustomStringConvertible{
 class GameListVM : GameListDelegate, ObservableObject{
     
     @Published private(set) var model : GameList
+    @Published private(set) var games = [Game]()
     
     @Published var gameListState : GameListState = .ready{
         didSet{
@@ -35,7 +36,7 @@ class GameListVM : GameListDelegate, ObservableObject{
             case .loading :
                 print("loading")
             case let .loaded(gameList) :
-                print("loaded")
+                self.model.overwrite(gameList)
             case .loadError :
                 print("loadError")
             default :
@@ -49,9 +50,15 @@ class GameListVM : GameListDelegate, ObservableObject{
         self.model.delegate = self
     }
     
+    func initWith(data : [GameData]){
+        self.model.overwrite(ApiHelper.gameDataToGames(data))
+    }
+    
     func overwriteList(games: [Game]) {
-        //fetch api-url/api/currentFestival/games
-        // loaded -> overwrite
-        // loadError -> stay same and change state
+        self.games.removeAll()
+        for game in self.model.games{
+            self.games.append(game)
+        }
+        self.gameListState = .newGames(self.games)
     }
 }

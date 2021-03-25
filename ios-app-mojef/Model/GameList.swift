@@ -16,5 +16,12 @@ class GameList : ObservableObject{
     
     private(set) var games = [Game]()
     
+    init(_ games : [Game]){
+        self.games = games
+    }
     
+    func overwrite(_ games : [Game]){
+        self.games = games
+        self.delegate?.overwriteList(games: games)
+    }
 }

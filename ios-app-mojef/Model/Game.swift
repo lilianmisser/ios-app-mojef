@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Game{
+struct Game : Identifiable{
     private(set) var id: String
     private(set) var name: String
     private(set) var minPlayers: Int

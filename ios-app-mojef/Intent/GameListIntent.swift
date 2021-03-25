@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class GameListIntent {
     @ObservedObject var viewModel : GameListVM
@@ -19,7 +20,7 @@ class GameListIntent {
     }
     
     func loaded(games : [Game]){
-        self.viewModel.gameListState = .newGames
+        self.viewModel.gameListState = .newGames(games)
     }
     
     func loadingError(){
@@ -28,6 +29,16 @@ class GameListIntent {
     
     func gamesLoaded(){
         self.viewModel.gameListState = .ready
+    }
+    
+    func httpJsonLoaded(result: Result<[GameData],HttpRequestError>){
+        switch result {
+        case let .success(data):
+            let games = ApiHelper.gameDataToGames(data)
+            self.viewModel.gameListState = .loaded(games)
+        case let .failure(error):
+            self.viewModel.gameListState = .loadError
+        }
     }
 
 }
