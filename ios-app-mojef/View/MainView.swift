@@ -15,7 +15,6 @@ struct MainView: View{
         self.festival = festival
         self.intent = FestivalIntent(viewModel: festival)
         let _ = festival.$festivalState.sink(receiveValue: stateChanged)
-        print(festival.games)
     }
     
     func stateChanged(state: FestivalState){
@@ -28,10 +27,13 @@ struct MainView: View{
     }
     
     var body: some View {
+        Text("\(festival.model.name)")
+        Text("\(festival.model.date)")
         NavigationView{
-            NavigationLink(destination: Text("Test")){
-                Text("Test")
+            NavigationLink(destination: GameListView(games: festival.games)){
+                Text("Games list")
             }
-        }.navigationBarTitle("\(festival.model.name)")
+        }
     }
 }
+

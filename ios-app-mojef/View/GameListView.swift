@@ -15,10 +15,12 @@ struct GameListView: View {
             Text("Current festival game list")
             List{
                 ForEach(games){ game in
-                    HStack{
-                        Text("Nom : \(game.game_name)")
-                        Text("Type : \(game.game_type)")
-                        Text("Age Min : \(game.game_minAge)")
+                    NavigationLink(destination: GameDetails(game : game)){
+                        HStack{
+                            Text("Nom : \(game.game_name)")
+                            Text("Type : \(game.game_type)")
+                            Text("Age Min : \(game.game_minAge)")
+                        }
                     }
                 }
             }

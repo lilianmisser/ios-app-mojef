@@ -12,8 +12,9 @@
 		8B3F6452260F4162008D5653 /* FestivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F6451260F4162008D5653 /* FestivalViewModel.swift */; };
 		8B3F6457260F4788008D5653 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F6456260F4788008D5653 /* Area.swift */; };
 		8B3F645F260F5CF7008D5653 /* FestivalIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F645E260F5CF7008D5653 /* FestivalIntent.swift */; };
+		8B3F6478260F67D2008D5653 /* PublisherListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F6477260F67D2008D5653 /* PublisherListView.swift */; };
+		8B3F647D260F68B8008D5653 /* GameDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F647C260F68B8008D5653 /* GameDetails.swift */; };
 		B72E95E7260B8B4500C37AF6 /* ios_app_mojefApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E95E6260B8B4500C37AF6 /* ios_app_mojefApp.swift */; };
-		B72E95E9260B8B4500C37AF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E95E8260B8B4500C37AF6 /* ContentView.swift */; };
 		B72E95EB260B8B4600C37AF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B72E95EA260B8B4600C37AF6 /* Assets.xcassets */; };
 		B72E95EE260B8B4600C37AF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B72E95ED260B8B4600C37AF6 /* Preview Assets.xcassets */; };
 		B72E95F9260B8B4600C37AF6 /* ios_app_mojefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E95F8260B8B4600C37AF6 /* ios_app_mojefTests.swift */; };
@@ -47,9 +48,10 @@
 		8B3F6451260F4162008D5653 /* FestivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalViewModel.swift; sourceTree = "<group>"; };
 		8B3F6456260F4788008D5653 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		8B3F645E260F5CF7008D5653 /* FestivalIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalIntent.swift; sourceTree = "<group>"; };
+		8B3F6477260F67D2008D5653 /* PublisherListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherListView.swift; sourceTree = "<group>"; };
+		8B3F647C260F68B8008D5653 /* GameDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetails.swift; sourceTree = "<group>"; };
 		B72E95E3260B8B4500C37AF6 /* ios-app-mojef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-app-mojef.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72E95E6260B8B4500C37AF6 /* ios_app_mojefApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_app_mojefApp.swift; sourceTree = "<group>"; };
-		B72E95E8260B8B4500C37AF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B72E95EA260B8B4600C37AF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B72E95ED260B8B4600C37AF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B72E95EF260B8B4600C37AF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,7 +121,6 @@
 				B72E9618260B9CA800C37AF6 /* ViewModel */,
 				B72E9617260B9C9F00C37AF6 /* View */,
 				B72E95E6260B8B4500C37AF6 /* ios_app_mojefApp.swift */,
-				B72E95E8260B8B4500C37AF6 /* ContentView.swift */,
 				B72E95EA260B8B4600C37AF6 /* Assets.xcassets */,
 				B72E95EF260B8B4600C37AF6 /* Info.plist */,
 				B72E95EC260B8B4600C37AF6 /* Preview Content */,
@@ -158,6 +159,8 @@
 			children = (
 				B72E962A260BA10400C37AF6 /* GameListView.swift */,
 				B7F0BC01260C742F002B14C5 /* MainView.swift */,
+				8B3F6477260F67D2008D5653 /* PublisherListView.swift */,
+				8B3F647C260F68B8008D5653 /* GameDetails.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,9 +329,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B3F647D260F68B8008D5653 /* GameDetails.swift in Sources */,
 				8B3F6452260F4162008D5653 /* FestivalViewModel.swift in Sources */,
 				8B3F644D260F4108008D5653 /* Festival.swift in Sources */,
-				B72E95E9260B8B4500C37AF6 /* ContentView.swift in Sources */,
+				8B3F6478260F67D2008D5653 /* PublisherListView.swift in Sources */,
 				B7F0BC02260C742F002B14C5 /* MainView.swift in Sources */,
 				B72E95E7260B8B4500C37AF6 /* ios_app_mojefApp.swift in Sources */,
 				B72E962B260BA10400C37AF6 /* GameListView.swift in Sources */,
