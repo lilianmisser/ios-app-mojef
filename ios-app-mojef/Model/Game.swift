@@ -7,16 +7,18 @@
 
 import Foundation
 
-struct Game : Identifiable{
-    private(set) var id: String
-    private(set) var name: String
-    private(set) var minPlayers: Int
-    private(set) var maxPlayers: Int
-    private(set) var minAge: Int
-    private(set) var maxAge: Int
-    private(set) var guideLink: String?
-    private(set) var isPrototype: Bool
-    private(set) var type: String
+struct Game : Codable, Identifiable{
+    let id = UUID()
+    let game_name: String
+    let game_type : String
+    let game_minAge : Int
+    let game_maxAge : Int
+    let game_minPlayers : Int
+    let game_maxPlayers : Int
+    let game_isPrototype : Bool
+    let game_guidelink : String?
+    let publisher_name : String
+    let area_label : String
 }
 
 

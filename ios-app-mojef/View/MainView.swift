@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct MainView: View{
-    @EnvironmentObject var gameList : GameListVM
-    var body: some View {
-        GameListView(gameList: gameList)
+    @ObservedObject var festival : FestivalViewModel
+    var intent : FestivalIntent
+    
+    init(festival: FestivalViewModel){
+        self.festival = festival
+        self.intent = FestivalIntent(viewModel: festival)
+        let _ = festival.$festivalState.sink(receiveValue: stateChanged)
+        print(festival.games)
     }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
+    
+    func stateChanged(state: FestivalState){
+        switch state{
+        case .newFestival:
+            break;
+        default :
+            break
+        }
+    }
+    
+    var body: some View {
+        NavigationView{
+            NavigationLink(destination: Text("Test")){
+                Text("Test")
+            }
+        }.navigationBarTitle("\(festival.model.name)")
     }
 }

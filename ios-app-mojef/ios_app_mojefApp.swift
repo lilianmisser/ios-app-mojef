@@ -10,22 +10,22 @@ import SwiftUI
 @main
 struct ios_app_mojefApp: App {
     @Environment(\.scenePhase) private var lifecycle
-    @StateObject var gameList = GameListVM(GameList([]))
+    @StateObject var festival = FestivalViewModel(Festival(name: "", date: "", games: []))
     
-    let gamesEndpoint = "https://mojef.florent.best/api/game"
+    let gamesEndpoint = "https://mojef.florent.best/api/festival/current"
     
     init(){
         
     }
     
-    func loadGames(){
+    func loadFestival(){
         ApiHelper.httpGetJsonData(from: gamesEndpoint, endofrequest: httpCallback)
     }
     
-    func httpCallback(result: Result<[GameData],HttpRequestError>){
+    func httpCallback(result: Result<Festival,HttpRequestError>){
         switch result {
         case .success(let data):
-            self.gameList.initWith(data: data)
+            self.festival.initWith(data)
         case .failure:
             break
         }
@@ -33,11 +33,11 @@ struct ios_app_mojefApp: App {
     
     var body: some Scene {
         WindowGroup {
-            GameListView(gameList: gameList)
+            MainView(festival : festival)
         }.onChange(of: lifecycle){ phase in
             switch phase{
             case .active:
-                self.loadGames()
+                self.loadFestival()
             case .background:
                 break
             case .inactive:

@@ -8,24 +8,6 @@
 import Foundation
 import Combine
 
-struct PublisherData : Codable{
-    let id : UUID
-    let name : String
-    let address : String
-}
-
-struct GameData : Codable{
-    let id : String
-    let name: String
-    let type : String
-    let minAge : Int
-    let maxAge : Int
-    let minPlayers : Int
-    let maxPlayers : Int
-    let isPrototype : Bool
-    let publisher : PublisherData
-}
-
 enum HttpRequestError : Error, CustomStringConvertible{
     case fileNotFound(String)
     case badURL(String)
@@ -53,15 +35,6 @@ enum HttpRequestError : Error, CustomStringConvertible{
 }
 
 struct ApiHelper {
-    
-    static func gameDataToGames(_ data : [GameData]) -> [Game]{
-            var games = [Game]()
-            for gdata in data{
-                let game = Game(id: gdata.id, name: gdata.name, minPlayers: gdata.minPlayers, maxPlayers: gdata.maxPlayers, minAge: gdata.minAge, maxAge: gdata.maxAge, isPrototype: gdata.isPrototype, type: gdata.type)
-                games.append(game)
-            }
-            return games
-        }
     
     static func httpGetJsonData<T: Decodable>(from surl: String, endofrequest: @escaping (Result<T,HttpRequestError>) -> Void){
         guard let url = URL(string: surl) else {

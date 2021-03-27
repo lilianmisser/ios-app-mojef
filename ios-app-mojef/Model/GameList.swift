@@ -24,4 +24,8 @@ class GameList : ObservableObject{
         self.games = games
         self.delegate?.overwriteList(games: games)
     }
+    
+    func addGame(_ game : Game){
+        self.games.append(game)
+    }
 }
