@@ -12,7 +12,6 @@ struct GameListView: View {
     
     var body: some View {
         VStack{
-            Text("Current festival game list")
             List{
                 ForEach(games){ game in
                     NavigationLink(destination: GameDetails(game : game)){

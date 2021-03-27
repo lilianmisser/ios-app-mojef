@@ -20,7 +20,7 @@ class FestivalIntent {
     }
     
     func loaded(festival : Festival){
-        self.viewModel.festivalState = .newFestival(festival)
+        self.viewModel.festivalState = .newFestival
     }
     
     func loadingError(){

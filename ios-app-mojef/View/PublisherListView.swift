@@ -11,12 +11,15 @@ struct PublisherListView: View {
     let publishers : [Publisher]
     var body: some View {
         VStack{
-            Text("Current festival publishers list")
+            Text("Editeurs")
             List{
                 ForEach(publishers){ publisher in
-                    HStack{
-                        Text("Nom : \(publisher.name)")
-                        Text("Nombre de jeux : \(publisher.games.count)")
+                    NavigationLink(
+                        destination: PublisherView(publisher: publisher)){
+                        HStack{
+                            Text("Nom : \(publisher.name)")
+                            Text("Nombre de jeux : \(publisher.games.count)")
+                        }
                     }
                 }
             }

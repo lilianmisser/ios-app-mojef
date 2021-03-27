@@ -14,6 +14,9 @@
 		8B3F645F260F5CF7008D5653 /* FestivalIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F645E260F5CF7008D5653 /* FestivalIntent.swift */; };
 		8B3F6478260F67D2008D5653 /* PublisherListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F6477260F67D2008D5653 /* PublisherListView.swift */; };
 		8B3F647D260F68B8008D5653 /* GameDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F647C260F68B8008D5653 /* GameDetails.swift */; };
+		8B9397CD260FDDDF001F648B /* AreaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9397CC260FDDDF001F648B /* AreaListView.swift */; };
+		8B9397D5260FEC8C001F648B /* PublisherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9397D4260FEC8C001F648B /* PublisherView.swift */; };
+		8B9397DD260FF1E4001F648B /* AreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9397DC260FF1E4001F648B /* AreaView.swift */; };
 		B72E95E7260B8B4500C37AF6 /* ios_app_mojefApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E95E6260B8B4500C37AF6 /* ios_app_mojefApp.swift */; };
 		B72E95EB260B8B4600C37AF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B72E95EA260B8B4600C37AF6 /* Assets.xcassets */; };
 		B72E95EE260B8B4600C37AF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B72E95ED260B8B4600C37AF6 /* Preview Assets.xcassets */; };
@@ -50,6 +53,9 @@
 		8B3F645E260F5CF7008D5653 /* FestivalIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalIntent.swift; sourceTree = "<group>"; };
 		8B3F6477260F67D2008D5653 /* PublisherListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherListView.swift; sourceTree = "<group>"; };
 		8B3F647C260F68B8008D5653 /* GameDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetails.swift; sourceTree = "<group>"; };
+		8B9397CC260FDDDF001F648B /* AreaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListView.swift; sourceTree = "<group>"; };
+		8B9397D4260FEC8C001F648B /* PublisherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherView.swift; sourceTree = "<group>"; };
+		8B9397DC260FF1E4001F648B /* AreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaView.swift; sourceTree = "<group>"; };
 		B72E95E3260B8B4500C37AF6 /* ios-app-mojef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-app-mojef.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72E95E6260B8B4500C37AF6 /* ios_app_mojefApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_app_mojefApp.swift; sourceTree = "<group>"; };
 		B72E95EA260B8B4600C37AF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,6 +167,9 @@
 				B7F0BC01260C742F002B14C5 /* MainView.swift */,
 				8B3F6477260F67D2008D5653 /* PublisherListView.swift */,
 				8B3F647C260F68B8008D5653 /* GameDetails.swift */,
+				8B9397CC260FDDDF001F648B /* AreaListView.swift */,
+				8B9397D4260FEC8C001F648B /* PublisherView.swift */,
+				8B9397DC260FF1E4001F648B /* AreaView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -332,9 +341,12 @@
 				8B3F647D260F68B8008D5653 /* GameDetails.swift in Sources */,
 				8B3F6452260F4162008D5653 /* FestivalViewModel.swift in Sources */,
 				8B3F644D260F4108008D5653 /* Festival.swift in Sources */,
+				8B9397DD260FF1E4001F648B /* AreaView.swift in Sources */,
 				8B3F6478260F67D2008D5653 /* PublisherListView.swift in Sources */,
 				B7F0BC02260C742F002B14C5 /* MainView.swift in Sources */,
+				8B9397CD260FDDDF001F648B /* AreaListView.swift in Sources */,
 				B72E95E7260B8B4500C37AF6 /* ios_app_mojefApp.swift in Sources */,
+				8B9397D5260FEC8C001F648B /* PublisherView.swift in Sources */,
 				B72E962B260BA10400C37AF6 /* GameListView.swift in Sources */,
 				8B3F6448260F34CA008D5653 /* Publisher.swift in Sources */,
 				B7F0BBFD260C7349002B14C5 /* ApiHelper.swift in Sources */,

@@ -19,7 +19,7 @@ struct MainView: View{
     
     func stateChanged(state: FestivalState){
         switch state{
-        case .newFestival:
+        case .loaded:
             break;
         default :
             break
@@ -30,8 +30,16 @@ struct MainView: View{
         Text("\(festival.model.name)")
         Text("\(festival.model.date)")
         NavigationView{
-            NavigationLink(destination: GameListView(games: festival.games)){
-                Text("Games list")
+            VStack{
+                NavigationLink(destination: GameListView(games: festival.games)){
+                    Text("Games list")
+                }
+                NavigationLink(destination: PublisherListView(publishers: festival.publishers)){
+                    Text("Publishers List")
+                }
+                NavigationLink(destination: AreaListView(areas: festival.areas)){
+                    Text("Area List")
+                }
             }
         }
     }

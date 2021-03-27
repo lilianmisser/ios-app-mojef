@@ -11,6 +11,26 @@ struct Festival : Codable {
     let name : String
     let date : String
     let games : [Game]
+    var areas : [Area] {
+        get{
+            var res = [Area]()
+            games.forEach{ game in
+                let curAreaLabel : String? = game.area_label
+                if(curAreaLabel != nil){
+                    let aIndex : Int = Area.existsInArray(array: res, areaLabel: curAreaLabel!)
+                    if(aIndex>0){
+                        res[aIndex].addGame(game)
+                    }
+                    else{
+                        var newArea = Area(label: curAreaLabel!)
+                        newArea.addGame(game)
+                        res.append(newArea)
+                    }
+                }
+            }
+            return res
+        }
+    }
     var publishers : [Publisher] {
         get{
             var res = [Publisher]()

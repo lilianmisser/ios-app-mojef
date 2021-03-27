@@ -10,6 +10,7 @@ import Foundation
 struct Game : Codable, Identifiable{
     let id = UUID()
     let game_name: String
+    let game_duration : String
     let game_type : String
     let game_minAge : Int
     let game_maxAge : Int
@@ -18,7 +19,16 @@ struct Game : Codable, Identifiable{
     let game_isPrototype : Bool
     let game_guidelink : String?
     let publisher_name : String
-    let area_label : String
+    let area_label : String?
+    
+    func getPlayersSummary() -> String{
+        if(game_minPlayers == game_maxPlayers){
+            return("\(game_minPlayers) requis")
+        }
+        else{
+            return("De \(game_minPlayers) à \(game_maxPlayers)")
+        }
+    }
 }
 
 

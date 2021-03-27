@@ -12,7 +12,7 @@ enum FestivalState: CustomStringConvertible{
     case loading
     case loaded(Festival)
     case loadError
-    case newFestival(Festival)
+    case newFestival
     
     var description: String{
         switch self{
@@ -35,12 +35,6 @@ class FestivalViewModel : ObservableObject{
     @Published var festivalState : FestivalState = .ready{
         didSet{
             switch self.festivalState{
-            case .loading :
-                print("loading")
-            case let .loaded(festival) :
-                self.model = festival
-            case .loadError :
-                print("loadError")
             default :
                 break
             }
@@ -62,6 +56,8 @@ class FestivalViewModel : ObservableObject{
     func newFestival(){
         self.publishers = self.model.publishers;
         self.games = self.model.games
+        self.areas = self.model.areas
+        self.festivalState = .newFestival
     }
 
 }
