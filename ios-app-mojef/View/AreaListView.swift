@@ -11,18 +11,17 @@ struct AreaListView: View {
     let areas : [Area]
     var body: some View {
         VStack{
-            Text("Liste des zones")
             List{
                 ForEach(areas){ area in
                     NavigationLink(
-                        destination: AreaView(area: area)){
+                        destination: GameListView(games: area.games, title : "Zone \(area.label)")){
                         HStack{
                             Text("Nom : \(area.label)")
                             Text("Nombre de jeux : \(area.games.count)")
                         }
                     }
                 }
-            }
+            }.navigationTitle("Liste des zones")
         }
     }
 }

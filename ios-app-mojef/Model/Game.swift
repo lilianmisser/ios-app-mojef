@@ -23,10 +23,10 @@ struct Game : Codable, Identifiable{
     
     func getPlayersSummary() -> String{
         if(game_minPlayers == game_maxPlayers){
-            return("\(game_minPlayers) requis")
+            return("\(game_minPlayers) joueurs requis")
         }
         else{
-            return("De \(game_minPlayers) à \(game_maxPlayers)")
+            return("De \(game_minPlayers) à \(game_maxPlayers) joueurs")
         }
     }
 }

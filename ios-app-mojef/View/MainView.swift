@@ -31,14 +31,14 @@ struct MainView: View{
         Text("\(festival.model.date)")
         NavigationView{
             VStack{
-                NavigationLink(destination: GameListView(games: festival.games)){
-                    Text("Games list")
+                NavigationLink(destination: GameListView(games: festival.games,title : "Tous les jeux")){
+                    Text("Jeux")
                 }
                 NavigationLink(destination: PublisherListView(publishers: festival.publishers)){
-                    Text("Publishers List")
+                    Text("Editeurs")
                 }
                 NavigationLink(destination: AreaListView(areas: festival.areas)){
-                    Text("Area List")
+                    Text("Zones")
                 }
             }
         }
