@@ -27,19 +27,27 @@ struct MainView: View{
     }
     
     var body: some View {
-        Text("\(festival.model.name)")
-        Text("\(festival.model.date)")
-        NavigationView{
-            VStack{
-                NavigationLink(destination: GameListView(games: festival.games,title : "Tous les jeux")){
-                    Text("Jeux")
-                }
-                NavigationLink(destination: PublisherListView(publishers: festival.publishers)){
-                    Text("Editeurs")
-                }
-                NavigationLink(destination: AreaListView(areas: festival.areas)){
-                    Text("Zones")
-                }
+        TabView{
+            NavigationView{
+                GameListView(games: festival.games,title : "Tous les jeux")
+            }
+            .tabItem {
+                Image(systemName: "star.fill")
+                Text("Jeux")
+            }
+            NavigationView{
+                PublisherListView(publishers: festival.publishers)
+            }
+            .tabItem {
+                Image(systemName: "person.crop.circle")
+                Text("Editeurs")
+            }
+            NavigationView{
+                AreaListView(areas: festival.areas)
+            }
+            .tabItem {
+                Image(systemName: "location")
+                Text("Zones")
             }
         }
     }
