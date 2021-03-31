@@ -18,7 +18,7 @@ struct Festival : Codable {
                 let curAreaLabel : String? = game.area_label
                 if(curAreaLabel != nil){
                     let aIndex : Int = Area.existsInArray(array: res, areaLabel: curAreaLabel!)
-                    if(aIndex>0){
+                    if(aIndex>=0){
                         res[aIndex].addGame(game)
                     }
                     else{
@@ -37,7 +37,7 @@ struct Festival : Codable {
             games.forEach{ game in
                 let curPublisherName : String = game.publisher_name
                 let pIndex : Int = Publisher.existsInArray(array: res, pname: curPublisherName)
-                if(pIndex>0){
+                if(pIndex>=0){
                     res[pIndex].addGame(game)
                 }
                 else{

@@ -13,14 +13,15 @@ struct GameRow: View {
         HStack{
             Text("\(game.game_name)")
                 .fontWeight(.semibold)
+            Spacer()
             VStack{
                 HStack{
-                    Image(systemName: "person.3")
                     Text("\(game.game_minPlayers)-\(game.game_maxPlayers)")
+                    Image(systemName: "person.3")
                 }
                 HStack{
-                    Image(systemName: "person.crop.circle")
                     Text("\(game.game_minAge)+")
+                    Image(systemName: "person.crop.circle")
                 }
                 
             }

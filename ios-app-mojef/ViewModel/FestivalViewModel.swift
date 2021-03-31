@@ -8,19 +8,15 @@
 import Foundation
 
 enum FestivalState: CustomStringConvertible{
-    case ready
     case loading
-    case loaded(Festival)
-    case loadError
-    case newFestival
+    case loaded
+    case loadError(HttpRequestError)
     
     var description: String{
         switch self{
-        case .ready : return "ready"
         case .loading : return "trying to load festival"
-        case .loaded(let festival) : return "festival loaded"
-        case .loadError : return "load error"
-        case .newFestival : return "festival rendered"
+        case .loaded : return "festival loaded"
+        case .loadError(let error) : return "load error"
         }
     }
 }
@@ -32,9 +28,11 @@ class FestivalViewModel : ObservableObject{
     @Published private(set) var publishers : [Publisher]
     @Published private(set) var games : [Game]
     
-    @Published var festivalState : FestivalState = .ready{
+    @Published var festivalState : FestivalState = .loaded{
         didSet{
             switch self.festivalState{
+            case .loading:
+                self.loadFestival()
             default :
                 break
             }
@@ -57,7 +55,22 @@ class FestivalViewModel : ObservableObject{
         self.publishers = self.model.publishers;
         self.games = self.model.games
         self.areas = self.model.areas
-        self.festivalState = .newFestival
     }
 
+    let gamesEndpoint = "https://mojef.florent.best/api/festival/current"
+    
+    func loadFestival(){
+        ApiHelper.httpGetJsonData(from: gamesEndpoint, endofrequest: httpCallback)
+    }
+    
+    func httpCallback(result: Result<Festival,HttpRequestError>){
+        print(result)
+        switch result {
+        case .success(let data):
+            self.initWith(data)
+            self.festivalState = .loaded
+        case .failure(let error):
+            self.festivalState = .loadError(error)
+        }
+    }
 }

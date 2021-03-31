@@ -10,44 +10,59 @@ import SwiftUI
 struct MainView: View{
     @ObservedObject var festival : FestivalViewModel
     var intent : FestivalIntent
-    
-    init(festival: FestivalViewModel){
+    @State var mainState : FestivalState = .loading
+    init(festival : FestivalViewModel){
         self.festival = festival
         self.intent = FestivalIntent(viewModel: festival)
         let _ = festival.$festivalState.sink(receiveValue: stateChanged)
+        self.intent.load()
+        
     }
     
     func stateChanged(state: FestivalState){
-        switch state{
-        case .loaded:
-            break;
-        default :
-            break
-        }
+        print("allo")
+        self.mainState = state
     }
     
     var body: some View {
-        TabView{
-            NavigationView{
-                GameListView(games: festival.games,title : "Tous les jeux")
+        if case .loaded = self.mainState{
+            TabView{
+                NavigationView{
+                    GameListView(games: festival.games,title : "Tous les jeux")
+                }
+                .tabItem {
+                    Image(systemName: "star.fill")
+                    Text("Jeux")
+                }
+                NavigationView{
+                    PublisherListView(publishers: festival.publishers)
+                }
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("Editeurs")
+                }
+                NavigationView{
+                    AreaListView(areas: festival.areas)
+                }
+                .tabItem {
+                    Image(systemName: "location")
+                    Text("Zones")
+                }
             }
-            .tabItem {
-                Image(systemName: "star.fill")
-                Text("Jeux")
+        }
+        else if case .loading = self.mainState{
+            VStack{
+                Text("loading")
             }
-            NavigationView{
-                PublisherListView(publishers: festival.publishers)
+        }
+        else if case .loadError(let error) = self.mainState {
+            VStack{
+                Text(error.description)
             }
-            .tabItem {
-                Image(systemName: "person.crop.circle")
-                Text("Editeurs")
-            }
-            NavigationView{
-                AreaListView(areas: festival.areas)
-            }
-            .tabItem {
-                Image(systemName: "location")
-                Text("Zones")
+        }
+        else {
+            VStack{
+                Text("else main")
             }
         }
     }

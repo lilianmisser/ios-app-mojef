@@ -19,25 +19,8 @@ class FestivalIntent {
         self.viewModel.festivalState = .loading
     }
     
-    func loaded(festival : Festival){
-        self.viewModel.festivalState = .newFestival
-    }
-    
-    func loadingError(){
-        self.viewModel.festivalState = .ready
-    }
-    
-    func gamesLoaded(){
-        self.viewModel.festivalState = .ready
-    }
-    
-    func httpJsonLoaded(result: Result<Festival,HttpRequestError>){
-        switch result {
-        case let .success(data):
-            self.viewModel.festivalState = .loaded(data)
-        case let .failure(error):
-            self.viewModel.festivalState = .loadError
-        }
+    func loadingError(_ error: HttpRequestError){
+        self.viewModel.festivalState = .loadError(error)
     }
 
 }
