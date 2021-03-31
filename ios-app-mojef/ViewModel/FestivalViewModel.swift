@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum FestivalState: CustomStringConvertible{
     case loading
@@ -16,7 +17,7 @@ enum FestivalState: CustomStringConvertible{
         switch self{
         case .loading : return "trying to load festival"
         case .loaded : return "festival loaded"
-        case .loadError(let error) : return "load error"
+        case .loadError( _) : return "load error"
         }
     }
 }
@@ -28,14 +29,21 @@ class FestivalViewModel : ObservableObject{
     @Published private(set) var publishers : [Publisher]
     @Published private(set) var games : [Game]
     
+    var customDataWillUpdate = PassthroughSubject<FestivalState, Never>()
+    
     @Published var festivalState : FestivalState = .loaded{
         didSet{
+            debugPrint("FestivalState = \(festivalState)")
             switch self.festivalState{
             case .loading:
                 self.loadFestival()
+                break;
             default :
                 break
             }
+        }
+        willSet{
+            self.objectWillChange.send()
         }
     }
     
@@ -44,6 +52,7 @@ class FestivalViewModel : ObservableObject{
         self.areas = []
         self.publishers = []
         self.games = []
+        self.festivalState = .loading
     }
     
     func initWith(_ festival : Festival){
@@ -64,7 +73,6 @@ class FestivalViewModel : ObservableObject{
     }
     
     func httpCallback(result: Result<Festival,HttpRequestError>){
-        print(result)
         switch result {
         case .success(let data):
             self.initWith(data)

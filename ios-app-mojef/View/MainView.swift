@@ -10,22 +10,15 @@ import SwiftUI
 struct MainView: View{
     @ObservedObject var festival : FestivalViewModel
     var intent : FestivalIntent
-    @State var mainState : FestivalState = .loading
+    
     init(festival : FestivalViewModel){
         self.festival = festival
         self.intent = FestivalIntent(viewModel: festival)
-        let _ = festival.$festivalState.sink(receiveValue: stateChanged)
-        self.intent.load()
-        
     }
     
-    func stateChanged(state: FestivalState){
-        print("allo")
-        self.mainState = state
-    }
     
     var body: some View {
-        if case .loaded = self.mainState{
+        if case .loaded = festival.festivalState{
             TabView{
                 NavigationView{
                     GameListView(games: festival.games,title : "Tous les jeux")
@@ -50,12 +43,12 @@ struct MainView: View{
                 }
             }
         }
-        else if case .loading = self.mainState{
+        else if case .loading = festival.festivalState{
             VStack{
                 Text("loading")
             }
         }
-        else if case .loadError(let error) = self.mainState {
+        else if case .loadError(let error) = festival.festivalState {
             VStack{
                 Text(error.description)
             }
