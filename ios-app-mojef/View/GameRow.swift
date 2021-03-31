@@ -25,7 +25,8 @@ struct GameRow: View {
                 }
                 
             }
-        }
+            Image(systemName: "chevron.right")
+        }.padding()
     }
 }
 

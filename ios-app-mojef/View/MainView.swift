@@ -16,26 +16,30 @@ struct MainView: View{
         self.intent = FestivalIntent(viewModel: festival)
     }
     
+    func onRefresh() -> Void {
+        print("refreshing data")
+        intent.load()
+    }
     
     var body: some View {
         if case .loaded = festival.festivalState{
             TabView{
                 NavigationView{
-                    GameListView(games: festival.games,title : "Tous les jeux")
+                    GameListView(games: festival.games,title : "Tous les jeux", onRefresh: onRefresh)
                 }
                 .tabItem {
                     Image(systemName: "star.fill")
                     Text("Jeux")
                 }
                 NavigationView{
-                    PublisherListView(publishers: festival.publishers)
+                    PublisherListView(publishers: festival.publishers, onRefresh: onRefresh)
                 }
                 .tabItem {
                     Image(systemName: "person.crop.circle")
                     Text("Editeurs")
                 }
                 NavigationView{
-                    AreaListView(areas: festival.areas)
+                    AreaListView(areas: festival.areas, onRefresh: onRefresh)
                 }
                 .tabItem {
                     Image(systemName: "location")

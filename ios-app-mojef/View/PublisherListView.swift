@@ -9,20 +9,29 @@ import SwiftUI
 
 struct PublisherListView: View {
     let publishers : [Publisher]
+    let onRefresh : () -> Void
     var body: some View {
-        VStack{
-            List{
-                ForEach(publishers){ publisher in
-                    NavigationLink(
-                        destination: GameListView(games: publisher.games,title : "\(publisher.name)")){
-                        HStack{
-                            Text("Nom : \(publisher.name)")
-                            Text("Nombre de jeux : \(publisher.games.count)")
-                        }
+        VStack(spacing:0){
+            HStack{
+                Spacer()
+                Text("Editeurs")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.black)
+                Spacer()
+            }
+            .background(Color.white.ignoresSafeArea(.all, edges: .top))
+            Divider()
+            RefreshScrollView(onRefresh: onRefresh){
+                VStack{
+                    ForEach(publishers){ publisher in
+                        NavigationLink(destination: GameListView(games: publisher.games,title : "\(publisher.name)", onRefresh: onRefresh)){
+                            DescriptionRow(name: publisher.name, numberOfGames: publisher.games.count, isArea: false)
+                        }.foregroundColor(.black).background(Color.white)
                     }
                 }
-            }.navigationTitle("Editeurs")
-        }
+            }
+        }.background(Color.black.opacity(0.10).ignoresSafeArea())
     }
 }
 
