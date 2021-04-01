@@ -45,7 +45,7 @@ struct RefreshScrollView<Content: View>: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false, content : {
-            //Geometry Reader keeping track of the users actions
+            //Geometry Reader keeps track of the user's actions
             GeometryReader{reader-> AnyView in
                 
                 DispatchQueue.main.async{
@@ -81,12 +81,12 @@ struct RefreshScrollView<Content: View>: View {
             
             ZStack(alignment: Alignment(horizontal: .center, vertical: .top)){
                 if refresh.started && refresh.released {
-                    ProgressView().offset(y: -35)
+                    ProgressView().offset(y: -35).foregroundColor(.blue)
                 }
                 else  {
                     Image(systemName: "arrow.down")
                         .font(.system(size: 16, weight: .heavy))
-                        .foregroundColor(.black)
+                        .foregroundColor(.blue)
                         .rotationEffect(.init(degrees: refresh.started ? 180 : 0))
                         .offset(y: -25)
                         .animation(.easeIn)
