@@ -23,27 +23,26 @@ struct MainView: View{
     
     var body: some View {
         if case .loaded = festival.festivalState{
-            TabView{
-                NavigationView{
+            NavigationView{
+                TabView{
                     GameListView(games: festival.games,title : "Tous les jeux", onRefresh: onRefresh)
-                }
-                .tabItem {
-                    Image(systemName: "star.fill")
-                    Text("Jeux")
-                }
-                NavigationView{
+                    .tabItem {
+                        Image(systemName: "star.fill")
+                        Text("Jeux")
+                    }
+                    .navigationBarHidden(true)
+                    
                     PublisherListView(publishers: festival.publishers, onRefresh: onRefresh)
-                }
-                .tabItem {
-                    Image(systemName: "person.crop.circle")
-                    Text("Editeurs")
-                }
-                NavigationView{
+                    .tabItem {
+                        Image(systemName: "person.crop.circle")
+                        Text("Editeurs")
+                    }.navigationBarHidden(true)
+                    
                     AreaListView(areas: festival.areas, onRefresh: onRefresh)
-                }
-                .tabItem {
-                    Image(systemName: "location")
-                    Text("Zones")
+                    .tabItem {
+                        Image(systemName: "location")
+                        Text("Zones")
+                    }.navigationBarHidden(true)
                 }
             }
         }

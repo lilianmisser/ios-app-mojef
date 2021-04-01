@@ -15,8 +15,8 @@ struct DescriptionRow: View {
         HStack{
             VStack{
                 HStack{
-                    Image(systemName: isArea ? "pin" : "person.3")
-                    Text(isArea ? "Zone " : "Editeur " + name)
+                    Image(systemName: isArea ? "location" : "person.crop.circle")
+                    Text(isArea ? "Zone " + name : "Editeur " + name)
                 }
                 HStack{
                     Image(systemName: "1.magnifyingglass")

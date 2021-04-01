@@ -29,8 +29,6 @@ class FestivalViewModel : ObservableObject{
     @Published private(set) var publishers : [Publisher]
     @Published private(set) var games : [Game]
     
-    var customDataWillUpdate = PassthroughSubject<FestivalState, Never>()
-    
     @Published var festivalState : FestivalState = .loaded{
         didSet{
             debugPrint("FestivalState = \(festivalState)")

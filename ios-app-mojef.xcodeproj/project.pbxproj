@@ -25,6 +25,7 @@
 		B72E9604260B8B4600C37AF6 /* ios_app_mojefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E9603260B8B4600C37AF6 /* ios_app_mojefUITests.swift */; };
 		B72E9621260B9D3A00C37AF6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E9620260B9D3A00C37AF6 /* Game.swift */; };
 		B72E962B260BA10400C37AF6 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72E962A260BA10400C37AF6 /* GameListView.swift */; };
+		B7EDDB022615BC380070FFC1 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EDDB012615BC380070FFC1 /* SearchBar.swift */; };
 		B7F0BBFD260C7349002B14C5 /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F0BBFC260C7349002B14C5 /* ApiHelper.swift */; };
 		B7F0BC02260C742F002B14C5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F0BC01260C742F002B14C5 /* MainView.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		B72E9605260B8B4600C37AF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B72E9620260B9D3A00C37AF6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		B72E962A260BA10400C37AF6 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
+		B7EDDB012615BC380070FFC1 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		B7F0BBFC260C7349002B14C5 /* ApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		B7F0BC01260C742F002B14C5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 				8B9397E7260FF6C2001F648B /* GameRow.swift */,
 				8B46CFC32614EA34009A234D /* RefreshScrollView.swift */,
 				8B46999C2615154F00E5F855 /* DescriptionRow.swift */,
+				B7EDDB012615BC380070FFC1 /* SearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				B7F0BBFD260C7349002B14C5 /* ApiHelper.swift in Sources */,
 				8B3F645F260F5CF7008D5653 /* FestivalIntent.swift in Sources */,
 				B72E9621260B9D3A00C37AF6 /* Game.swift in Sources */,
+				B7EDDB022615BC380070FFC1 /* SearchBar.swift in Sources */,
 				8B3F6457260F4788008D5653 /* Area.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
