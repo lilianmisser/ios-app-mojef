@@ -31,7 +31,15 @@ struct GameListView: View {
             SearchBar(searchInput: $searchInput)
             Spacer().frame(height:10)
         }
-        .navigationBarTitle(title, displayMode: .inline)
+        .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text(title)
+                            .font(.headline)
+                            .foregroundColor(.blue)
+                            .fontWeight(.bold)
+                    }
+                }
         .background(Color(.systemGray5).ignoresSafeArea())
     }
 }

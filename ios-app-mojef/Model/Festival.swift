@@ -49,4 +49,18 @@ struct Festival : Codable {
             return res
         }
     }
+    
+    func getStringDateRepresentation() -> String{
+        let formatDate = self.date.split(separator: ".")
+        if(formatDate.count>0){
+            let tmp = formatDate[0].split(separator: "T")
+            if(tmp.count > 0){
+                let tmpBis = tmp[0].split(separator: "-")
+                if(tmpBis.count == 3){
+                    return "\(tmpBis[2])/\(tmpBis[1])/\(tmpBis[0])"
+                }
+            }
+        }
+        return ""
+    }
 }
