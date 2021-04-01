@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View{
+    @State private var selectedTab = 1
     @ObservedObject var festival : FestivalViewModel
     var intent : FestivalIntent
     
@@ -24,24 +25,39 @@ struct MainView: View{
     var body: some View {
         if case .loaded = festival.festivalState{
             NavigationView{
-                TabView{
-                    FestivalPage(festival: festival.model, onRefresh: onRefresh)
-                    .tabItem {
-                        Image(systemName: "star.fill")
-                        Text("Festival")
-                    }.navigationBarHidden(true)
-                    
+                TabView(selection: $selectedTab){
                     PublishersPage(publishers: festival.publishers, onRefresh: onRefresh)
-                    .tabItem {
-                        Image(systemName: "person.crop.circle")
-                        Text("Editeurs")
-                    }.navigationBarHidden(true)
+                        .onTapGesture {
+                                self.selectedTab = 0
+                        }
+                        .tabItem {
+                            Image(systemName: "person.crop.circle")
+                            Text("Editeurs")
+                        }
+                        .tag(0)
+                        .navigationBarHidden(true)
+                    
+                    FestivalPage(festival: festival.model, onRefresh: onRefresh)
+                        .onTapGesture {
+                            self.selectedTab = 1
+                        }
+                        .tabItem {
+                            Image(systemName: "star.fill")
+                            Text("Festival")
+                        }
+                        .tag(1)
+                        .navigationBarHidden(true)
                     
                     AreasPage(areas: festival.areas, onRefresh: onRefresh)
-                    .tabItem {
-                        Image(systemName: "location")
-                        Text("Zones")
-                    }.navigationBarHidden(true)
+                        .onTapGesture {
+                            self.selectedTab = 2
+                        }
+                        .tabItem {
+                            Image(systemName: "location")
+                            Text("Zones")
+                        }
+                        .tag(2)
+                        .navigationBarHidden(true)
                 }
             }
         }
