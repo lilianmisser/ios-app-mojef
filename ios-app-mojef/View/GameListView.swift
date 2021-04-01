@@ -15,15 +15,6 @@ struct GameListView: View {
     
     var body: some View {
         VStack(spacing:0){
-            HStack{
-                Spacer()
-                Text(title)
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
-                    .foregroundColor(.blue)
-                Spacer()
-            }.frame(minHeight: 60)
-            .background(Color.white.ignoresSafeArea(.all, edges: .top))
             Divider()
             RefreshScrollView(onRefresh: onRefresh){
                 VStack{
@@ -40,6 +31,7 @@ struct GameListView: View {
             SearchBar(searchInput: $searchInput)
             Spacer().frame(height:10)
         }
+        .navigationBarTitle(title, displayMode: .inline)
         .background(Color(.systemGray5).ignoresSafeArea())
     }
 }

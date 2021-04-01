@@ -1,8 +1,8 @@
 //
-//  PublisherListView.swift
+//  PublishersPage.swift
 //  ios-app-mojef
 //
-//  Created by user188901 on 3/27/21.
+//  Created by user188901 on 4/1/21.
 //
 
 import SwiftUI
@@ -39,5 +39,3 @@ struct PublishersPage: View {
         }.background(Color(.systemGray5).ignoresSafeArea())
     }
 }
-
-

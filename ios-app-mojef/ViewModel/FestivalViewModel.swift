@@ -24,7 +24,7 @@ enum FestivalState: CustomStringConvertible{
 
 class FestivalViewModel : ObservableObject{
     
-    private(set) var model : Festival
+    @Published private(set) var model : Festival
     @Published private(set) var areas : [Area]
     @Published private(set) var publishers : [Publisher]
     @Published private(set) var games : [Game]

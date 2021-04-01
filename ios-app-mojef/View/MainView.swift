@@ -25,20 +25,19 @@ struct MainView: View{
         if case .loaded = festival.festivalState{
             NavigationView{
                 TabView{
-                    GameListView(games: festival.games,title : "Tous les jeux", onRefresh: onRefresh)
+                    FestivalPage(festival: festival.model, onRefresh: onRefresh)
                     .tabItem {
                         Image(systemName: "star.fill")
-                        Text("Jeux")
-                    }
-                    .navigationBarHidden(true)
+                        Text("Festival")
+                    }.navigationBarHidden(true)
                     
-                    PublisherListView(publishers: festival.publishers, onRefresh: onRefresh)
+                    PublishersPage(publishers: festival.publishers, onRefresh: onRefresh)
                     .tabItem {
                         Image(systemName: "person.crop.circle")
                         Text("Editeurs")
                     }.navigationBarHidden(true)
                     
-                    AreaListView(areas: festival.areas, onRefresh: onRefresh)
+                    AreasPage(areas: festival.areas, onRefresh: onRefresh)
                     .tabItem {
                         Image(systemName: "location")
                         Text("Zones")
