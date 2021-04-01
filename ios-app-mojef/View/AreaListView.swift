@@ -33,9 +33,11 @@ struct AreaListView: View {
                     }
                 }
             }
+            Spacer().frame(height:10)
             SearchBar(searchInput: $searchInput)
+            Spacer().frame(height:10)
         }
-        .background(Color.black.opacity(0.10).ignoresSafeArea())
+        .background(Color(.systemGray5).ignoresSafeArea())
     }
 }
 

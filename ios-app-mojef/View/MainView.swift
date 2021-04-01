@@ -17,7 +17,7 @@ struct MainView: View{
     }
     
     func onRefresh() -> Void {
-        print("refreshing data")
+        //print("refreshing data")
         intent.load()
     }
     
@@ -48,17 +48,18 @@ struct MainView: View{
         }
         else if case .loading = festival.festivalState{
             VStack{
-                Text("loading")
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
             }
         }
         else if case .loadError(let error) = festival.festivalState {
             VStack{
-                Text(error.description)
+                Text("Erreur technique: \(error.description), veuillez contacter les administrateurs")
             }
         }
         else {
             VStack{
-                Text("else main")
+                Text("Unexepected")
             }
         }
     }

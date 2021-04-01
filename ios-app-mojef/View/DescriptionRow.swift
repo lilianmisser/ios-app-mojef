@@ -16,11 +16,13 @@ struct DescriptionRow: View {
             VStack{
                 HStack{
                     Image(systemName: isArea ? "location" : "person.crop.circle")
-                    Text(isArea ? "Zone " + name : "Editeur " + name)
+                    Text(name)
+                    Spacer()
                 }
                 HStack{
                     Image(systemName: "1.magnifyingglass")
-                    Text("Nombre de jeux \(numberOfGames)")
+                    Text("Nombre de jeux : \(numberOfGames)")
+                    Spacer()
                 }
             }
             Spacer()

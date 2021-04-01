@@ -21,7 +21,7 @@ struct SearchBar: View {
                 TextField("Aa", text: $searchInput)
                     .padding(.vertical, 8)
                     .padding(.horizontal, 30)
-                    .background(Color(.systemGray5))
+                    .background(Color.blue.opacity(0.2))
                     .cornerRadius(20)
                     .padding(.horizontal, 10)
                     .onTapGesture {
@@ -33,7 +33,7 @@ struct SearchBar: View {
                     }
                 }
             }
-        .background(Color.white)
+        .background(Color(.systemGray5))
     }
 }
 

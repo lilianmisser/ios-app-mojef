@@ -33,8 +33,10 @@ struct PublisherListView: View {
                     }
                 }
             }
+            Spacer().frame(height:10)
             SearchBar(searchInput: $searchInput)
-        }.background(Color.black.opacity(0.10).ignoresSafeArea())
+            Spacer().frame(height:10)
+        }.background(Color(.systemGray5).ignoresSafeArea())
     }
 }
 
