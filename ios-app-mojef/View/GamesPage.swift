@@ -2,33 +2,19 @@
 //  GamesPage.swift
 //  ios-app-mojef
 //
-//  Created by user188901 on 4/1/21.
+//  Created by etud on 02/04/2021.
 //
 
 import SwiftUI
 
-struct FestivalPage: View {
-    var festival : Festival
-    var onRefresh: () -> Void
+struct GamesPage: View {
     var body: some View {
-        VStack{
-            HStack{
-                Spacer()
-                Text("Bienvenue au \(festival.name)")
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
-                    .foregroundColor(.blue)
-                Spacer()
-            }.frame(minHeight: 60)
-            .background(Color.white.ignoresSafeArea(.all, edges: .top))
-            Spacer()
-            Text("Il se déroulera  à \(festival.date)")
-            Text("Rendez vous au Corum")
-            Text("Il y a \(festival.games.count) présentées avec \(festival.publishers.count) éditeurs différents !")
-            NavigationLink(
-                destination: GameListView(games: festival.games, title: "Tous les jeux", onRefresh: onRefresh)){
-                Text("Go to")
-            }
-        }
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+struct GamesPage_Previews: PreviewProvider {
+    static var previews: some View {
+        GamesPage()
     }
 }

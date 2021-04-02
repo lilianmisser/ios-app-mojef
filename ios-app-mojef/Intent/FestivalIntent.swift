@@ -18,9 +18,4 @@ class FestivalIntent {
     func load(){
         self.viewModel.festivalState = .loading
     }
-    
-    func loadingError(_ error: HttpRequestError){
-        self.viewModel.festivalState = .loadError(error)
-    }
-
 }
